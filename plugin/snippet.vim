@@ -25,12 +25,12 @@ endfunction
 
 "Defaults 默认设置{{{1
 let g:_ATV_SNIPPET_DEFAULTS = {
-            \'author':      'HonkW',
+            \'author':      'ninghechuan',
             \'company':     'NB Co.,Ltd.',
-            \'project':     'IC_Design',
-            \'device':      'Xilinx',
-            \'email':       'contact@honk.wang',
-            \'website':     'honk.wang',
+            \'project':     '',
+            \'device':      'asic',
+            \'email':       'ninghechuan@foxmail.com',
+            \'website':     '',
             \'st_pos':      4,
             \'clk':         'clk',        
             \'rst':         'rst',
@@ -47,6 +47,9 @@ let s:prefix = repeat(' ',g:atv_snippet_st_pos)
 "}}}1
 
 "Menu&Mapping 菜单栏和快捷键{{{1
+command Alpn    :call <SID>AlBpn()<ESC>
+command Al      :call <SID>AlB()<ESC>
+command HD      :call <SID>AddHeader()<ESC>
 amenu &Verilog.Code.Always@.always\ @(posedge\ or\ posedge)<TAB><<Leader>al>    :call <SID>AlBpp()<CR>
 amenu &Verilog.Code.Always@.always\ @(posedge\ or\ negedge)                     :call <SID>AlBpn()<CR>
 amenu &Verilog.Code.Always@.always\ @(*)                                        :call <SID>AlB()<CR>
@@ -114,10 +117,10 @@ function s:AddHeader() "{{{1
         call append(lnum,  "// Email         : ".g:atv_snippet_email)
         let lnum = lnum + 1
     endif
-    if g:atv_snippet_website != ''
-        call append(lnum,  "// Website       : ".g:atv_snippet_website)
-        let lnum = lnum + 1
-    endif
+    "if g:atv_snippet_website != ''
+    "    call append(lnum,  "// Website       : ".g:atv_snippet_website)
+    "    let lnum = lnum + 1
+    "endif
     call append(lnum,    "// Created On    : ".strftime("%Y/%m/%d %H:%M"))
     call append(lnum+1,  "// Last Modified : ".strftime("%Y/%m/%d %H:%M"))
     call append(lnum+2,  "// File Name     : ".filename)

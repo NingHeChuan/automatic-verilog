@@ -63,7 +63,7 @@ let g:_ATV_AUTOINST_DEFAULTS = {
             \'keep_chg':    1,        
             \'incl_cmnt':   1,
             \'incl_ifdef':  1,    
-            \'95_support':  0,    
+            \'95_support':  1,    
             \'tail_nalign': 0,    
             \'add_dir':     0,    
             \'add_dir_keep':0,
@@ -80,6 +80,16 @@ let s:st_prefix = repeat(' ',g:atv_autoinst_st_pos)
 "Keys 快捷键{{{1
 amenu 9998.2.1 &Verilog.AutoInst.AutoInst(0)<TAB>One                             :call g:AutoInst(0)<CR>
 amenu 9998.2.2 &Verilog.AutoInst.AutoInst(1)<TAB>All                             :call g:AutoInst(1)<CR>
+
+command AI      :call AutoInst(0)<ESC>
+command AIall   :call AutoInst(1)<ESC>
+command AP      :call AutoPara(0)<ESC>
+command APall   :call AutoPara(1)<ESC>
+command APV     :call AutoParaValue(0)<ESC>
+command APVall  :call AutoParaValue(1)<ESC>
+command AD      :call AutoDef()<ESC>
+command AR      :call AutoArg()<ESC>
+
 if !hasmapto(':call g:AutoInst(0)<ESC>')
     map <S-F3>      :call g:AutoInst(0)<ESC>
 endif

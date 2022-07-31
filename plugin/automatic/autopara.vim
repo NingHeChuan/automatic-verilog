@@ -45,8 +45,8 @@ let g:_ATV_AUTOPARA_DEFAULTS = {
             \'para_new':    1,
             \'para_del':    1,
             \'keep_chg':    1,        
-            \'incl_cmnt':   0,
-            \'incl_ifdef':  0,    
+            \'incl_cmnt':   1,
+            \'incl_ifdef':  1,    
             \'tail_nalign': 0    
             \}
 for s:key in keys(g:_ATV_AUTOPARA_DEFAULTS)
